@@ -1,9 +1,10 @@
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './index.js',
   output: {
-    path: __dirname + '/public',
+    path: __dirname,
     filename: 'bundle.js'
   },
   module: {
@@ -14,5 +15,11 @@ module.exports = {
         exclude: /node_modules/
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      inject: "body"
+    })
+  ]
 };
