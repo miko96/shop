@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/assets/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 34);
@@ -19650,11 +19650,7 @@ var _Home2 = _interopRequireDefault(_Home);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function () {
-    return _react2.default.createElement(
-        _reactRouterDom.BrowserRouter,
-        null,
-        _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _Home2.default })
-    );
+    return _react2.default.createElement(_Home2.default, null);
 };
 
 /***/ }),
@@ -23383,7 +23379,7 @@ var Home = function Home() {
   return _react2.default.createElement(
     'h1',
     null,
-    'Hello Kitty'
+    'Hello '
   );
 };
 
