@@ -1,31 +1,21 @@
-var webpack = require('webpack');
+var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './index.js',
+  entry: './app/index.js',
   output: {
-    path: __dirname + '/public',
-    publicPath: '/public',
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, 'public'),
+    filename: 'index_bundle.js'
   },
   module: {
-    loaders: [
-      {
-        test: /.jsx?$/,
-        loader: 'babel-loader',
-        exclude: /(node_modules|public)/
-      },
-      {
-        test : /.css?$/,
-        loader: 'style-loader!css-loader',
-        exclude: /(node_modules)/
-      }
+    rules: [
+      { test: /\.js$/, use: 'babel-loader' },
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] }
     ]
-  }
-  // plugins: [
-  //   new HtmlWebpackPlugin({
-  //     template: '.public/index.html',
-  //     inject: "body"
-  //   })
-  // ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './app/index.html'
+    })
+  ],
 };
