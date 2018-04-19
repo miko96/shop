@@ -1,0 +1,15 @@
+.nav_menu_item:hover{
+    
+    border-bottom: 5px solid black;
+    cursor: pointer;
+    color: rebeccapurple;
+}
+
+a.nav_menu_item{
+    color: #000;
+    text-decoration: none;
+}
+
+.nav_menu_item {
+    display: flex; 
+}

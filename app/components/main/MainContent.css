@@ -1,0 +1,9 @@
+.main_content {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.filter_stub {
+    display: flex;
+}

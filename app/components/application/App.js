@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Header from '../header/Header'
+import MainContent from '../main/MainContent'
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <Header />
-    );
-  }
+export default class App extends Component {
+	render() {
+		return (
+			<section className="app_root">
+				<Header />
+				<MainContent />
+			</section>
+		);
+	}
 }

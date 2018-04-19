@@ -1,0 +1,14 @@
+.gallery_item_container {
+  display: flex;
+  padding: 5px; 
+  width: 25%;
+  box-sizing:  border-box;
+  justify-content: center;
+}
+
+.gallery_item {
+  display: flex; 
+  background-color: lightseagreen;
+  width: 100%;
+	overflow: hidden;
+}
