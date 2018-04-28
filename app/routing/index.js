@@ -1,31 +1,51 @@
-import App from '../components/application/App'
+import React from 'react';
+// import ProductsGallery from '../components/gallery/ProductsGallery';
+// import ProductView from '../components/product/ProductView';
+import {
+  About,
+  App,
+  ProductsGallery,
+  ProductView,
+  Shop,
+} from '../components';
 
-export default {
-    path: '/',
+const routes = [
+  {
     component: App,
-    indexRoute: {},
-    childRoutes: []
-}
+    routes: [
+      {
+        path: '/',
+        exact: true,
+        component: () => <div>default</div>,
+      },
+      {
+        path: '/home',
+        exact: true,
+        component: () => <div>home</div>,
+      },
+      {
+        path: '/about',
+        component: About,
+      },
+      {
+        path: '/shop',
+        component: Shop,
+        routes: [
+          {
+            path: '/shop/product/:name',
+            component: ProductView,
+          },
+          {
+            component: ProductsGallery,
+          },
+        ],
+      },
+      {
+        path: '*',
+        component: () => <div>Not Found</div>,
+      },
+    ],
+  },
+];
 
-// const routes = [
-//   {
-//     path: "/sandwiches",
-//     component: Sandwiches
-//   },
-//   {
-//     path: "/tacos",
-//     component: Tacos,
-//     routes: [
-//       {
-//         path: "/tacos/bus",
-//         component: Bus
-//       },
-//       {
-//         path: "/tacos/cart",
-//         component: Cart
-//       }
-//     ]
-//   }
-// ];
-
-// export default routes;
+export default routes;

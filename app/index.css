@@ -1,4 +1,9 @@
 body {
+    
     margin: 0;
     background: lightcoral;
+}
+
+a, body {
+    color: #575757;
 }

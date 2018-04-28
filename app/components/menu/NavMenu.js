@@ -1,15 +1,14 @@
-import React, { Component } from 'react'
-import Menu from './Menu'
-import MenuItem from './MenuItem'
+import React from 'react';
+import Menu from './Menu';
+import MenuItem from './MenuItem';
 
-export default class NavMenu extends Component {
-	render() {
-		return (
-			<Menu>
-				<MenuItem name='first' />
-				<MenuItem name='second' />
-				<MenuItem name='third' />
-			</Menu>
-		)
-	}
-}
+const NavMenu = () => (
+  <Menu>
+    <MenuItem name="Home" link="/home" />
+    <MenuItem name="Shop" link="/shop" />
+    <MenuItem name="About" link="/about" />
+    <MenuItem name="Cart" link="/cart" />
+  </Menu>
+);
+
+export default NavMenu;
