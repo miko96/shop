@@ -1,9 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
-
-
 import NavMenu from '../menu/NavMenu';
 import {
   Header,
@@ -23,4 +20,4 @@ function App({ route }) {
   );
 }
 
-export default withRouter(connect()(App));
+export default connect()(App);

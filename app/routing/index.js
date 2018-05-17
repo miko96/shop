@@ -1,9 +1,9 @@
 import React from 'react';
-// import ProductsGallery from '../components/gallery/ProductsGallery';
-// import ProductView from '../components/product/ProductView';
 import {
   About,
   App,
+  CreateProduct,
+  Product,
   ProductsGallery,
   ProductView,
   Shop,
@@ -25,6 +25,7 @@ const routes = [
       },
       {
         path: '/about',
+        exact: true,
         component: About,
       },
       {
@@ -32,8 +33,14 @@ const routes = [
         component: Shop,
         routes: [
           {
-            path: '/shop/product/:name',
-            component: ProductView,
+            path: '/shop/products/:productKey',
+            exact: true,
+            component: Product,
+          },
+          {
+            path: '/shop/createproduct',
+            exact: true,
+            component: CreateProduct,
           },
           {
             component: ProductsGallery,
