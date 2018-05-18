@@ -39,13 +39,17 @@ export const getProductsFilters = () => (dispatch) => {
       FilterKey: 'key',
       FilterType: 'in',
       Options: [
-        'asd',
-        'sadsad',
+        'val1',
+        'val2',
       ],
     },
     {
       FilterKey: 'key2',
-      FilterType: 'in',
+      FilterType: 'inn',
+      Options: [
+        'val1',
+        'val2',
+      ],
     },
   ];
 
