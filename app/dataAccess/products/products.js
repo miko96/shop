@@ -14,7 +14,15 @@ function getProduct(productKey) {
     .then(response => response.data);
 }
 
+function searchProducts(filters) {
+  const url = '/products/search';
+  return axios()
+    .get(url, { params: { filters } })
+    .then(response => response.data);
+}
+
 module.exports = {
   getAllProducts,
   getProduct,
+  searchProducts,
 };

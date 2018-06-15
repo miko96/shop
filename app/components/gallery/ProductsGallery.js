@@ -1,31 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
-import ProductsFilters from './ProductsFilters';
+import ProductsFilters from '../filters/ProductsFilters';
 import ProductsList from './ProductsList';
 
 import {
-  getAllProducts,
-  getProductsFilters,
-} from '../../actions/productsActions';
-
-import Gallery from './Gallery';
-import GalleryItem from './GalleryItem';
+  productsActions,
+  productsFiltersActions,
+} from '../../actions';
 
 class ProductsGallery extends Component {
   componentDidMount() {
-    this.props.getProducts();
+    this.props.getAllProducts();
     this.props.getProductsFilters();
   }
 
   render() {
-    const { filters, products } = this.props;
+    const {
+      filters,
+      products,
+      searchProducts,
+      setFilterValue,
+    } = this.props;
     return (
-      <div>
+      <div className="gallery_container">
         <ProductsFilters
           filters={filters}
-          filtersActions={{
+          actions={{
+            setFilterValue,
+            applyFilters: searchProducts,
           }}
         />
         <ProductsList
@@ -39,8 +42,8 @@ class ProductsGallery extends Component {
 ProductsGallery.propTypes = {
   products: PropTypes.array.isRequired,
   filters: PropTypes.array.isRequired,
-  getProducts: PropTypes.func.isRequired,
-  getProductsFilters: PropTypes.func.isRequired,
+  // productsActions: PropTypes.object.isRequired,
+  // productsFiltersActions: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -51,6 +54,6 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, {
-  getProducts: getAllProducts,
-  getProductsFilters,
+  ...productsActions,
+  ...productsFiltersActions,
 })(ProductsGallery);

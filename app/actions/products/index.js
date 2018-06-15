@@ -1,4 +1,5 @@
-import { productsApi } from '../dataAccess/api';
+import { productsApi } from '../../dataAccess/api';
+import format from './formatFilters';
 
 export const getAllProducts = () =>
   async (dispatch) => {
@@ -33,25 +34,9 @@ export const getProduct = productId =>
     dispatch({ type: 'GET_PRODUCT', product });
   };
 
-export const getProductsFilters = () => (dispatch) => {
-  const filters = [
-    {
-      FilterKey: 'key',
-      FilterType: 'in',
-      Options: [
-        'val1',
-        'val2',
-      ],
-    },
-    {
-      FilterKey: 'key2',
-      FilterType: 'inn',
-      Options: [
-        'val1',
-        'val2',
-      ],
-    },
-  ];
-
-  dispatch({ type: 'GET_PRODUCTS_FILTERS', filters });
-};
+export const searchProducts = filters =>
+  async (dispatch) => {
+    const f = format();
+    const products = await productsApi.searchProducts(f);
+    dispatch({ type: 'SEARCH_PRODUCTS', products });
+  };
